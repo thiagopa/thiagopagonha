@@ -37,6 +37,22 @@ class Post(models.Model):
     class Meta:
         ordering = ['-created']
 
+
+class Links(models.Model):
+    
+    TYPES = (
+         (1, 'PROFILE'), 
+         (2, 'AFFILIATES')
+    )
+    
+    name = models.CharField(max_length=60)
+    url = models.TextField()
+    type = models.IntegerField(choices=TYPES)
+    
+class FortuneCookie(models.Model):
+    name = models.TextField()
+        
+
 class Comment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     author = models.CharField(max_length=60)

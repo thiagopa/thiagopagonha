@@ -1,0 +1,6 @@
+*.pyc
+autoload
+dbindexer
+django
+djangoappengine
+djangotoolbox

@@ -1,3 +1,5 @@
+{% load blog_sidebar %}
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
@@ -28,20 +30,14 @@ Released   : 20120712
 				</div>
 				<div id="menu">
 					<ul>
-						<li class="first {% block homepage%}{% endblock%}">
-							<a href="/">Blog</a>
+						<li class="first {% block blogpage%}{% endblock%}">
+							<a href="/blog/list/">Blog</a>
 						</li>
 						<li class="{% block aboutpage%}{% endblock%}">
-							<a href="about">Sobre</a>
+							<a href="/blog/about/">Sobre</a>
 						</li>
-						<li>
-							<a href="#">PortFolio</a>
-						</li>
-						<li>
-							<a href="#">Wiki</a>
-						</li>
-						<li class="last">
-							<a href="https://github.com/thiagopa">GitHub</a>
+						<li class="{% block wikipage%}{% endblock%} last">
+							<a href="/blog/wiki/">Wiki</a>
 						</li>
 					</ul>
 					<br class="clearfix" />
@@ -51,22 +47,8 @@ Released   : 20120712
 				{% block sidebar %}
 				<div id="sidebar">
 					<div class="box">
-						<h3>Monthly Archive</h3>
-						<p>
-							Mês que vem tem mais
-						</p>
-						<ul class="list">
-
-							{% for month in months %}
-							{% ifchanged month.0 %} {{ month.0 }}
-							<br />
-							{% endifchanged %}
-							<li>
-								<a href="{% url blog.views.month month.0 month.1 %}">{{ month.2 }}</a>
-							</li>
-							{% endfor %}
-
-						</ul>
+						<h3>Perfis</h3>
+							{% profile_links %}
 					</div>
 					
 				</div>
@@ -101,31 +83,17 @@ Released   : 20120712
 			<div id="page-bottom">
 				<div id="page-bottom-sidebar">
 					<h3>Recomendo</h3>
-					<ul class="list">
-						<li class="first">
-							<a href="http://www.baka-raptor.com/">Baka Raptor</a>
-						</li>
-						<li>
-							<a href="http://hacktoon.com/">Nerdson não vai à Escola</a>
-						</li>
-						<li class="last">
-							<a href="http://www.dorkly.com/originals">Dorkly Originals</a>
-						</li>
-					</ul>
+					{% afiliates_links %}
+
 				</div>
 				<div id="page-bottom-content">
-					<h3>Biscoito da Sorte</h3>
-					<p>
-						"Aquele que se importa com os sentimentos dos outros não é um tolo."
-					</p>
-					<p>“Há três coisas que jamais voltam: a flecha lançada, a palavra dita e a oportunidade perdida.”</p>
-					<p>“O cão não ladra por valentia, mas sim por medo.”</p>
+					{% fortune_cookies %}
 				</div>
 				<br class="clearfix" />
 			</div>
 		</div>
 		<div id="footer">
-			&copy; 2012 <a href="https://www.facebook.com/thi.pag">Thiago Pagonha</a> | Design by <a href="http://www.freecsstemplates.org/">FCT</a> | Images by <a href="http://fotogrph.com/">Fotogrph</a>
+			&copy; 2012 <a href="http://thiagopagonha.appspot.com/">Thiago Pagonha</a>
 		</div>
 	</body>
 </html>

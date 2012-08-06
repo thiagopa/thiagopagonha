@@ -4,6 +4,8 @@ from blog.models import *
 from blog.views import * 
 from blog.feeds import BlogLatestEntries
 
+
+
 feeds = {
     'latest': BlogLatestEntries,
 }
@@ -32,5 +34,7 @@ urlpatterns = patterns('blog.views',
    url(r'^(?P<template>\w+)/$', static_page, name="static_page"),
 #   url(r'^post/(?P<object_id>\d+)/$', list_detail.object_detail, {'queryset': Post.objects.all(), 'template_object_name': 'post',}, name="single_post"),
    #(r"", "main"),
-   url(r'^$', list_detail.object_list, {'queryset': Post.objects.all(), 'template_object_name': 'post',}, name="blog_home"),
+   #url(r'^$', list_detail.object_list, {'queryset': Post.objects.all(), 'template_object_name': 'post',}, name="blog_home"),
+   #(r'^$', "about"),
+   url(r"^$", static_page, { 'template' : 'about' }, name="static_page"),
 )

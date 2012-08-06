@@ -26,6 +26,16 @@ indexes:
   - name: __key__
     direction: desc
 
+- kind: blog_fortunecookie
+  properties:
+  - name: __key__
+    direction: desc
+
+- kind: blog_links
+  properties:
+  - name: __key__
+    direction: desc
+
 - kind: blog_post
   properties:
   - name: __key__

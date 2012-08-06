@@ -24,7 +24,7 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.auth',
     'django.contrib.sessions',
-    'django.contrib.sites',
+    #'django.contrib.sites',
     'djangotoolbox',
     'autoload',
     'dbindexer',
