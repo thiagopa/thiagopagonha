@@ -29,7 +29,7 @@ def profile_links():
 @register.inclusion_tag('blog/profiles.html')
 def afiliates_links():
     return {
-            'links' : Links.objects.filter(type=2)
+            'links' : sample(Links.objects.filter(type=2),3)
     }    
     
 @register.inclusion_tag('blog/fortuneCookies.html')

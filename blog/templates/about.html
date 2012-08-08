@@ -1,8 +1,21 @@
 {% extends "base.html" %}
 
+{% load blog_sidebar %}
+
 {% block title %}About{% endblock %}
 
 {% block aboutpage %}active{% endblock %}
+
+{% block sidebar %}
+<div id="sidebar">
+	<div class="box">
+		<h3>Perfis</h3>
+		{% profile_links %}
+	</div>
+
+</div>
+{% endblock %}
+
 
 {% block content %}
 <div class="box">
