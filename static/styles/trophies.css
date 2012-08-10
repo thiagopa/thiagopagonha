@@ -181,9 +181,7 @@ border-bottom: 5px solid #DDD;
 .trophiescontainer .topslot {
 background-color: #F2F2F2;
 border-bottom: 2px solid #EDEDED;
-clear: both;
 margin: 0;
-/*width: 780px;*/
 height: 48px;
 }
 
