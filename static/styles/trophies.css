@@ -236,7 +236,6 @@ height: 49px;
 }
 
 .trophiescontainer .topslot #topcontent div.topslotCol4 {
-width: 195px;
 float: left;
 height: 49px;
 text-align: left;
@@ -273,7 +272,6 @@ background-image: url(/static/playstationbr/img/trophy-04-platinum.gif);
 }
 
 .trophiescontainer .scrollbar_container {
-clear: both;
 position: relative;
 width: 100%;
 }
