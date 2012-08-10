@@ -40,3 +40,8 @@ indexes:
   properties:
   - name: __key__
     direction: desc
+
+- kind: psn_wishlist
+  properties:
+  - name: __key__
+    direction: desc

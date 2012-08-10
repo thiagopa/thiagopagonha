@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+
+{% load psn_sidebar %}
+
+{% block title %}PSN{% endblock %}
+
+{% block psnpage %}active{% endblock %}
+
+{% block sidebar %}
+<div id="sidebar">
+	<div class="box">
+		<h3>WishList Jogos PS3</h3>
+		{% wish_list %}
+	</div>
+
+</div>
+{% endblock %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="/static/styles/trophies.css" />
+{% endblock %}
+
+{% block content %}
+
+<div class="box">
+	<h2>PSN</h2>
+
+	<p>Meu perfil da psn atualizado em tempo real.</p>
+
+<div class="trophiescontainer">
+
+		<div class="trophiesinnermodule">
+
+			<div class="summaryslot">
+				<div class="profileLogo">
+					<div class="badge-full">
+
+						<div id="id-avatar">
+							<img width="57" height="57" border="0" alt="" src="{{ profile.AvatarSmall }}">
+						</div>
+						<div id="id-handle">
+							{{ profile.PsnId }}
+						</div>
+					</div>
+
+				</div>
+
+				<div id="trophysummary">
+
+					<div id="levelprogress">
+						<div class="stitle">
+							<strong>NÍVEL</strong>
+						</div>
+						<div id="starline"></div>
+						<div id="leveltext">
+							{{profile.Level}}
+						</div>
+					</div>
+
+					<div id="totaltrophies">
+						<div class="stitle">
+							<strong>TROFÉUS </strong>
+						</div>
+						<div id="text">
+							{{profile.TrophyCount.Total}}
+						</div>
+					</div>
+					<div class="podium">
+						<div class="text platinum">
+							{{profile.TrophyCount.Platinum}} Platina
+						</div>
+						<div class="text gold">
+							{{profile.TrophyCount.Gold}} Ouro
+						</div>
+						<div class="text silver">
+							{{profile.TrophyCount.Silver}} Prata
+						</div>
+						<div class="text bronze">
+							{{profile.TrophyCount.Bronze}} Bronze
+						</div>
+					</div>
+
+					<div id="barline">
+						<div id="progressbar" class="progress_bar" style="width: {{profile.Progress}}px"></div>
+					</div>
+					<div class="progresstext">
+						{{profile.Progress}}%
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+<div class="trophiescontainer mainlist">
+		<div class="trophiesinnermodule">
+
+			<div class="topslot">
+				<div id="topcontent">
+
+					<div class="topslotCol1">
+
+						<div class="colHeader topslotCol1a" id="" >
+							<div class="columntext">
+								TÍTULO
+							</div>
+						</div>
+					</div>
+					<div class="headerSeparator"></div>
+
+					<div class="colHeader topslotCol2 " id="" >
+						<div class="columntext">
+							PROGRESSO
+						</div>
+					</div>
+
+					<div class="headerSeparator"></div>
+
+					<div class="colHeader topslotCol3" id="" >
+						<div class="columntext">
+							TROFÉUS
+						</div>
+					</div>
+
+					<div class="headerSeparator"></div>
+
+					<div class="colHeader topslotCol4">
+						<div class="trophyholder">
+							<div class="trophyimage bronze"></div>
+							<div class="trophyimage silver"></div>
+							<div class="trophyimage gold"></div>
+							<div class="trophyimage platinum"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="slots_container" class="scrollbar_container">
+				<div id="theMainSlot" class="">
+
+				{% for game in profile.PlayedGames.PlayedGame %}
+
+					<div class="slot" >
+						<div class="slotcontent" >
+							<div class="titlesection">
+								<div class="titlelogo">
+									<img border="0" alt="" src="{{ game.Image }}"> 
+								</div>
+								<div class="titletext gameTitleSortField ">
+												{{ game.Title }}
+								</div>
+							</div>	
+
+								<div class="progress">
+									<div class="barholder">
+										<div class="progress_bar progress_bar_blue" style="width: {{ game.Progress }}px"></div>
+									</div>
+									<div class="progresstext">
+										<span class="gameProgressSortField">{{ game.Progress }}</span>%
+									</div>
+								</div>
+
+								<div class="trophycount collection">
+									<center>
+										<div class="trophycontent">
+											<span class="gameTrophyCountSortField">{{ game.TrophyCount.Total }}</span>
+										</div>
+									</center>
+								</div>
+
+								<div class="trophyholder trophycountholder">
+									<div class="trophycount normal">
+										<center>
+											<div class="trophycontent">
+												{{ game.TrophyCount.Bronze }}
+											</div>
+										</center>
+									</div>
+									<div class="trophycount normal">
+										<center>
+											<div class="trophycontent">
+												{{ game.TrophyCount.Silver }}
+											</div>
+										</center>
+									</div>
+									<div class="trophycount normal">
+										<center>
+											<div class="trophycontent">
+												{{ game.TrophyCount.Gold }}
+											</div>
+										</center>
+									</div>
+									<div class="trophycount normal">
+										<center>
+											<div class="trophycontent">
+												{{ game.TrophyCount.Platinum }}
+											</div>
+										</center>
+									</div>
+								</div>
+							</div>
+						</div>
+				{% endfor %}
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+{% endblock %}

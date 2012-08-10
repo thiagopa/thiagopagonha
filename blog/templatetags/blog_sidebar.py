@@ -28,12 +28,25 @@ def profile_links():
 
 @register.inclusion_tag('blog/profiles.html')
 def afiliates_links():
+    
+    try:
+        links = Links.objects.filter(type=2)
+        links = sample(links,3)
+    except ( ValueError ):    
+        links = None
+        
     return {
-            'links' : sample(Links.objects.filter(type=2),3)
+            'links' : links
     }    
     
 @register.inclusion_tag('blog/fortuneCookies.html')
 def fortune_cookies():
+    try:
+        fortune = FortuneCookie.objects.all()
+        fortune = sample(fortune,3)
+    except ( ValueError ):    
+        fortune = None
+
     return { 
-            'fortune_cookies' : sample(FortuneCookie.objects.all(),3) 
+            'fortune_cookies' : fortune 
     }

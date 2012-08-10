@@ -29,6 +29,7 @@ INSTALLED_APPS = (
     'autoload',
     'dbindexer',
     'blog',
+    'psn',
 
     # djangoappengine should come last, so it can override a few manage.py commands
     'djangoappengine',
@@ -64,6 +65,7 @@ ADMIN_MEDIA_PREFIX = '/media/admin/'
 TEMPLATE_DIRS = (
                  os.path.join(os.path.dirname(__file__), 'templates'), 
                  os.path.join(os.path.dirname(__file__), 'blog/templates'),
+                 os.path.join(os.path.dirname(__file__), 'pns/templates'),
 )
 
 ROOT_URLCONF = 'urls'

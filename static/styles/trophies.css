@@ -1,0 +1,425 @@
+
+
+.trophiescontainer {
+	/*clear: both;*/
+	/*width: 580px;*/
+	margin-bottom: 10px;
+	border: 2px solid #DDD;
+	margin-top: 10px;
+}
+
+.trophiescontainer .trophiesinnermodule {
+padding: 0;
+text-align: left;
+font-size: 12px;
+}
+
+.trophiescontainer .summaryslot {
+height: 88px;
+/*width: 580px;*/
+padding-top: 7px;
+font-size: 12px;
+background: transparent url(/static/playstationbr/img/summary-slots-bg.jpg) repeat-x;
+}
+
+div.profileLogo {
+float: left;
+ /*width: 230px;*/
+}
+
+.trophiescontainer .summaryslot #trophysummary {
+/*width: 290px;*/
+margin-left: 25px;
+}
+
+.trophiescontainer .summaryslot #levelprogress {
+float: left;
+height: 60px;
+}
+
+.trophiescontainer .summaryslot #levelprogress #starline {
+background-image: url(/static/playstationbr/img/profile_level_icon.gif);
+background-repeat: no-repeat;
+clear: left;
+float: left;
+height: 36px;
+margin: 5px 0 0;
+width: 38px;
+}
+
+.trophiescontainer .summaryslot #levelprogress #leveltext {
+float: left;
+font-size: 30px;
+margin: 0 0 0 5px;
+width: 58px;
+}
+
+.trophiescontainer .summaryslot #totaltrophies {
+display: inline;
+float: left;
+/*margin: 0 0 0 110px;*/
+height: 60px;
+}
+
+.trophiescontainer .summaryslot #barline {
+background-image: url(/static/playstationbr/img/barline.png);
+background-color: #FBFBFB;
+background-repeat: no-repeat;
+float: left;
+width: 154px;
+height: 12px;
+margin: 7px 0px 0px 0px;
+}
+
+.trophiescontainer .summaryslot .progresstext {
+float: left;
+line-height: 12px;
+height: 14px;
+margin: 7px 0px 0px 5px;
+text-align: right;
+width: 30px;
+}
+
+.trophiescontainer .summaryslot .podium {
+background-image: url(/static/playstationbr/img/trophy-staircase-shorter-gray.png);
+background-repeat: no-repeat;
+float: right;
+height: 92px;
+width: 180px;
+}
+
+.badge-full #id-handle {
+color: #333;
+font-size: 18px;
+font-weight: bold;
+left: 91px;
+line-height: 22px;
+overflow: hidden;
+position: absolute;
+top: 5px;
+margin-right: 4px;
+}
+
+.trophiescontainer .summaryslot .podium .platinum {
+margin-top: 21px;
+padding-left: 120px;
+}
+
+.trophiescontainer .summaryslot .podium .text {
+font-size: 10px;
+float: left;
+height: 16px;
+line-height: 16px;
+clear: both;
+color: #333;
+}
+
+.trophiescontainer .summaryslot .podium .gold {
+padding-left: 85px;
+width: 100px;
+}
+
+.trophiescontainer .summaryslot .podium .silver {
+padding-left: 47px;
+width: 135px;
+}
+
+.trophiescontainer .summaryslot .podium .bronze {
+padding-left: 6px;
+width: 172px;
+}
+
+div.badge-full {
+width: 177px;
+height: 65px;
+position: relative;
+}
+
+div.badge-full #id-avatar {
+height: 59px;
+left: 15px;
+background: #CACACA url(/static/playstationbr/img/icon_bg.jpg) repeat-x;
+position: relative;
+top: 5px;
+width: 59px;
+border: 1px solid silver;
+}
+
+div.badge-full #id-avatar img {
+border: 1px solid white;
+}
+
+div.badge-full #id-handle {
+color: #333;
+font-size: 18px;
+font-weight: bold;
+left: 91px;
+line-height: 22px;
+overflow: hidden;
+position: absolute;
+top: 5px;
+}
+
+.progress_bar {
+background-color: #FFD424;
+margin: 3px 2px 3px 2px;
+float: left;
+height: 6px;
+overflow: hidden;
+}
+
+.trophiescontainer .summaryslot #totaltrophies #text {
+font-size: 30px;
+text-align: center;
+}
+
+.mainlist {
+margin: 0px 0 2px 0;
+border-bottom: 5px solid #DDD;
+}
+
+.trophiescontainer .topslot {
+background-color: #F2F2F2;
+border-bottom: 2px solid #EDEDED;
+clear: both;
+margin: 0;
+/*width: 780px;*/
+height: 48px;
+}
+
+.trophiescontainer .topslot #topcontent {
+height: 48px;
+text-align: center;
+font-size: 11px;
+}
+
+.trophiescontainer .topslot #topcontent div.topslotCol1 {
+width: 200px;
+height: 100%;
+float: left;
+margin: 0;
+padding: 0;
+}
+
+.trophiescontainer .topslot #topcontent div.topslotCol1a {
+width: 200px;
+float: left;
+_width: 210px;
+height: 49px;
+}
+
+div.colHeader {
+position: relative;
+}
+
+.trophiescontainer .topslot #topcontent .columntext {
+position: relative;
+bottom: -18px;
+color: #282828;
+}
+
+div.headerSeparator {
+float: left;
+width: 0px;
+height: 48px;
+border-left: 1px dotted #D9D9D9;
+}
+
+.trophiescontainer .topslot #topcontent div.topslotCol2 {
+width: 120px;
+float: left;
+height: 49px;
+}
+
+.trophiescontainer .topslot #topcontent div.topslotCol3 {
+width: 90px;
+float: left;
+height: 49px;
+}
+
+.trophiescontainer .topslot #topcontent div.topslotCol4 {
+width: 195px;
+float: left;
+height: 49px;
+text-align: left;
+}
+
+.trophiescontainer .topslot #topcontent .trophyholder {
+display: inline;
+float: left;
+margin: 8px 0px 0px 14px;
+}
+
+.trophiescontainer .topslot #topcontent .trophyholder .trophyimage {
+background-repeat: no-repeat;
+float: left;
+width: 38px;
+height: 34px;
+margin: 0px 2px 0px 4px;
+overflow: hidden;
+}
+
+.trophiescontainer .topslot #topcontent .bronze {
+background-image: url(/static/playstationbr/img/trophy-01-bronze.gif);
+}
+
+.trophiescontainer .topslot #topcontent .silver {
+background-image: url(/static/playstationbr/img/trophy-02-silver.gif);
+}
+
+.trophiescontainer .topslot #topcontent .gold {
+background-image: url(/static/playstationbr/img/trophy-03-gold.gif);
+}
+.trophiescontainer .topslot #topcontent .platinum {
+background-image: url(/static/playstationbr/img/trophy-04-platinum.gif);
+}
+
+.trophiescontainer .scrollbar_container {
+clear: both;
+position: relative;
+width: 100%;
+}
+
+.trophiescontainer #slots_container #theMainSlot {
+overflow: hidden;
+max-height: 470px;
+text-align: center;
+_overflow: auto;
+}
+
+.trophiescontainer .slotHover {
+background: #EEE url(/static/playstationbr/img/summary-slots-bg.jpg);
+}
+
+.trophiescontainer .slot {
+min-height: 59px;
+overflow: hidden;
+margin: 0px 0px 0px 0px;
+width: 100%;
+clear: both;
+border-bottom: 2px solid #EDEDED;
+}
+
+.trophiescontainer .slotcontent {
+min-height: 59px;
+margin: 0px;
+overflow: hidden;
+}
+
+.trophiescontainer .slotcontent .titlesection {
+float: left;
+min-height: 59px;
+width: 200px;
+
+}
+
+.trophiescontainer .slotcontent .titlesection .titlelogo {
+float: left;
+display: inline;
+margin: 6px 6px 0px 6px;
+width: 80px;
+background: url(/static/playstationbr/img/icon_bg2.jpg) repeat-x;
+border: 1px solid #CCC;
+background: url(/static/playstationbr/img/icon_bg2.jpg) repeat-x;
+}
+
+.trophiescontainer .slotcontent .titlesection img {
+width: 80px;
+height: 44px;
+}
+
+.trophiescontainer .slotcontent .titlesection .titletext {
+
+font-size: 13px;
+font-weight: bold;
+margin: 20px 0px 0px 0px;
+text-align: left;
+/*width: 160px;*/
+_width: 130px;
+}
+
+.trophiescontainer .slotcontent .titlesection .titletext table {
+height: 58px;
+vertical-align: middle;
+font-size: 13px;
+font-weight: bold;
+width: 100%;
+}
+
+.trophiescontainer .slotcontent .progress {
+text-align: left;
+float: left;
+width: 140px;
+margin-left: 4px;
+}
+
+.trophiescontainer .slotcontent .progress .barholder {
+background-image: url(/static/playstationbr/img/barline-short.png);
+background-repeat: no-repeat;
+clear: both;
+background-color: #FBFBFB;
+float: left;
+width: 90px;
+height: 12px;
+margin: 24px 0px 0px 0px;
+}
+
+.progress_bar_blue {
+background-color: #4880C8;
+}
+
+.progress_bar {
+background-color: #FFD424;
+margin: 3px 2px 3px 2px;
+float: left;
+height: 6px;
+overflow: hidden;
+}
+
+.trophiescontainer .slotcontent .progress .progresstext {
+float: left;
+display: inline;
+font-size: 11px;
+font-weight: normal;
+height: 14px;
+margin: 22px 0 0;
+text-align: right;
+width: 30px;
+}
+
+.trophiescontainer .slotcontent .collection {
+width: 89px;
+margin: auto;
+}
+
+.trophiescontainer .slotcontent .trophycount {
+background-position: right bottom;
+background-repeat: no-repeat;
+float: left;
+height: 58px;
+width: 50px;
+}
+
+.trophiescontainer .slotcontent .trophycount .trophycontent {
+font-size: 14px;
+margin-top: 21px;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+width: 37px;
+}
+
+.trophiescontainer .slotcontent .trophycountholder {
+float: right;
+height: 58px;
+margin: 0 0 0 0px;
+/*width: 205px;*/
+}
+.trophiescontainer .slotcontent .normal {
+background: url(/static/playstationbr/img/divider.png) no-repeat 0 0;
+}
+
+
+.gameTitleSortField {
+	word-wrap: break-word;	
+}
