@@ -12,3 +12,14 @@ def wish_list():
             'wishlist': WishList.objects.all(),
     }
     
+@register.inclusion_tag('psn_px.html')
+def progress_ratio(value,ratio):
+    
+    result = float(value) * float(ratio)
+    
+    if result < 1 : 
+        result = 1
+    
+    return {
+        'result' : result
+    }

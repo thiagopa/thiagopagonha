@@ -81,7 +81,7 @@
 					</div>
 
 					<div id="barline">
-						<div id="progressbar" class="progress_bar" style="width: {{profile.Progress}}px"></div>
+						<div id="progressbar" class="progress_bar" {% progress_ratio profile.Progress "1.54" %}></div>
 					</div>
 					<div class="progresstext">
 						{{profile.Progress}}%
@@ -155,7 +155,7 @@
 
 								<div class="progress">
 									<div class="barholder">
-										<div class="progress_bar progress_bar_blue" style="width: {{ game.Progress }}px"></div>
+										<div class="progress_bar progress_bar_blue" {% progress_ratio game.Progress "0.9" %}></div>
 									</div>
 									<div class="progresstext">
 										<span class="gameProgressSortField">{{ game.Progress }}</span>%
