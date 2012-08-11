@@ -1,4 +1,6 @@
-Not Ready
+Running Application at : http://thiagopagonha.appspot.com/
+
+But Not Ready,
 
 Still a work in progress, more like a study case.
 
@@ -16,7 +18,7 @@ djangotoolbox
 WebOs==1.1.1
 SUDS (my github version)
 
-Added PSN Account Integration wich is pretty cool ;P
+Added PSN Account Integration which is pretty cool ;P
 
 install these on a virtualenv or put their symlinks on the root directory of your project ;P
 
