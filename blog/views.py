@@ -137,3 +137,5 @@ def blog_post_search(request):
         return render_to_response('blog/invalid_search.html')
         
 
+def google(request):
+    return render_to_response('google9bee04d2de3a930d.html')

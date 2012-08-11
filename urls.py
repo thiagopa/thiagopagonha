@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     (r'^psn/', include('psn.urls')),
     ('^_ah/warmup$', 'djangoappengine.views.warmup'),
     #('^$', 'django.views.generic.simple.direct_to_template', {'template': 'home.html'}),
-    (r'^admin/', include(admin.site.urls)), 
+    (r'^admin/', include(admin.site.urls)),
+    (r'^google9bee04d2de3a930d.html$', 'blog.views.google') 
 )
