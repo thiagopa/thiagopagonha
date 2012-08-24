@@ -65,7 +65,9 @@ ADMIN_MEDIA_PREFIX = '/media/admin/'
 TEMPLATE_DIRS = (
                  os.path.join(os.path.dirname(__file__), 'templates'), 
                  os.path.join(os.path.dirname(__file__), 'blog/templates'),
-                 os.path.join(os.path.dirname(__file__), 'pns/templates'),
+                 os.path.join(os.path.dirname(__file__), 'psn/templates'),
+                 os.path.join(os.path.dirname(__file__), 'wiki/templates'),
+
 )
 
 ROOT_URLCONF = 'urls'
