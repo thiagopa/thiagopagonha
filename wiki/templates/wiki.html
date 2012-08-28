@@ -17,9 +17,13 @@
 
 {% block content %}
 <div class="box">
-	<h2>{{wiki.name}}</h2>
-	
+	<h2>{{wiki.title}}</h2>
+	{% autoescape off %}
 	{{wiki.data}}
+	{% endautoescape %}
+	<br/>
+	<br/>
+	<p class="right">Última atualização: {{wiki.updated}}</p>
 	
 </div>	
 {% endblock %}

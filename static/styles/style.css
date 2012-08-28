@@ -286,3 +286,11 @@ a {
 #comment_form label, #comment_form input[type=text], #comment_form textarea {
 	display: block;
 }
+
+.red {
+	color: red;
+}
+
+.right {
+	float:right;
+}

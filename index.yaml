@@ -45,3 +45,8 @@ indexes:
   properties:
   - name: __key__
     direction: desc
+
+- kind: wiki_page
+  properties:
+  - name: __key__
+    direction: desc
