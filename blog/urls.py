@@ -36,5 +36,5 @@ urlpatterns = patterns('blog.views',
    #(r"", "main"),
    #url(r'^$', list_detail.object_list, {'queryset': Post.objects.all(), 'template_object_name': 'post',}, name="blog_home"),
    #(r'^$', "about"),
-   url(r"^$", static_page, { 'template' : 'about' }, name="static_page"),
+   url(r"^$", static_page, { 'template' : 'list' }, name="static_page"),
 )
