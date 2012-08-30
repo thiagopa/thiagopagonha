@@ -21,5 +21,5 @@ def progress_ratio(value,ratio):
         result = 1
     
     return {
-        'result' : result
+        'result' : "%f" % result
     }
