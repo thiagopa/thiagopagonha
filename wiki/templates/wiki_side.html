@@ -1,0 +1,9 @@
+<ul class="list">
+
+	{% for page in last_pages %}
+	<li>
+		<a href="/wiki/{{page.name}}">{{page.title}}</a> ({{page.updated|date:"d/M"}})
+	</li>
+	{% endfor %}
+
+</ul>

@@ -2,6 +2,7 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from django.core.exceptions import ObjectDoesNotExist
+from django.http import Http404
 
 from wiki.models import Page
 
@@ -14,7 +15,7 @@ def get_page_name(self, pagename):
     try :
         page = Page.objects.get(name=pagename)
     except (ObjectDoesNotExist) :        
-        return render_to_response("not_found.html")
+        raise Http404 
         
     return render_to_response('wiki.html',dict(wiki=page))
 

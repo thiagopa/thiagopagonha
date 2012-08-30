@@ -1,6 +1,21 @@
-{% extends 'base.html' %}
-{% block title %}Server error{% endblock %}
+{% extends "base.html" %}
+
+{% block title %}Bad Bananas{% endblock %}
+
+{% block sidebar %}
+				<div id="sidebar">
+					<div class="box">
+	<h3 class="red">Bad Bananas</h3>
+	<p>O conteúdo que você tentou acessar está passando por dificulades técnicas, mas se contente com a dança da banana ;P</p>
+</div></div>
+
+{% endblock %}
 
 {% block content %}
-There was an error while handling your request.
+<div class="box">
+	
+	<img src="/static/images/dancing_banana.gif" />
+	
+	
+</div>	
 {% endblock %}

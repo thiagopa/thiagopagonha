@@ -4,11 +4,13 @@
 
 {% block wikipage %}active{% endblock %}
 
+{% load wiki_sidebar %}
+
 {% block sidebar %}
 <div id="sidebar">
 	<div class="box">
-		<h3>Últimas Páginas</h3>
-		Lista com as últimas páginas criadas recentemente.
+		<h3>Páginas Atualizadas</h3>
+		{% last_pages %}
 	</div>
 
 </div>
