@@ -17,6 +17,7 @@ djangoappengine
 djangotoolbox
 WebOs==1.1.1
 SUDS (my github version)
+pytz
 
 Added PSN Account Integration which is pretty cool ;P
 
