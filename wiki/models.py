@@ -19,16 +19,14 @@ class Page(models.Model):
     
     data = models.TextField()
     
-    updated = models.DateTimeField(default=default_now)
-    #updated = models.DateTimeField()
+    updated = models.DateTimeField()
     
     def __unicode__(self):
         return self.name
     
-#    def save(self):
-#        if not self.id:
-#            self.updated = default_now()
-#        super(Page, self).save()
+    def save(self):
+        self.updated = default_now()
+        super(Page, self).save()
 
 
 class PageAdmin(admin.ModelAdmin):
