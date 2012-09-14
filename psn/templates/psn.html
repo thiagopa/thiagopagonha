@@ -28,6 +28,16 @@
 	<p>Confira os jogos de Playstation 3 que eu estou jogando.</p>
 	<p>Essa página exibe o meu perfil da <a href="http://br.playstation.com/">PSN</a> atualizado em tempo real.</p>
 
+	<p>Insira um nome de usuário e confira o perfil também </p>
+	
+	<form action="{% url psn.views.profile %}" method="post">
+		<input name="psn_user" type="text" value="{{psn_user}}"/> <input type="submit" value="Pesquisar"/>
+	</form>
+	
+{% if profile == None %}
+	<p>Usuário {{psn_user}} não foi encontrado, verifique se não digitou errado...</p>
+{% else %}	
+
 <div class="trophiescontainer">
 
 		<div class="trophiesinnermodule">
@@ -212,5 +222,5 @@
 		</div>
 
 	</div>
-
+{% endif %}
 {% endblock %}

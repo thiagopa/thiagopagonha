@@ -12,10 +12,18 @@ from suds.cache import NoCache
 
 def profile(request):
     
+    try :
+        psn_user = request.POST[SEARCH_PARAM]
+    except :
+        psn_user = PSN_USER
+    
     # Necessário esse cache porque o AppEngine não permite escritas em arquivos
     client = Client(PSN_WSDL, cache=MemCache())
     
-    profile = client.service.GetProfile(PSN_USER)
+    try : 
+        profile = client.service.GetProfile(psn_user)
+    except :
+        profile = None
     
-    return render_to_response('psn.html', dict(profile=profile))
+    return render_to_response('psn.html', dict(profile=profile,psn_user=psn_user))
     

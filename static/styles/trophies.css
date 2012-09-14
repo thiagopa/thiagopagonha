@@ -158,6 +158,8 @@ line-height: 22px;
 overflow: hidden;
 position: absolute;
 top: 5px;
+width: 80px;
+word-wrap: break-word;
 }
 
 .progress_bar {
@@ -244,7 +246,7 @@ text-align: left;
 .trophiescontainer .topslot #topcontent .trophyholder {
 display: inline;
 float: left;
-margin: 8px 0px 0px 14px;
+margin: 8px 0px 0px 4px;
 }
 
 .trophiescontainer .topslot #topcontent .trophyholder .trophyimage {
@@ -277,10 +279,10 @@ width: 100%;
 }
 
 .trophiescontainer #slots_container #theMainSlot {
-overflow: hidden;
+overflow-y: scroll;
 max-height: 470px;
 text-align: center;
-_overflow: auto;
+overflow-x: hidden;
 }
 
 .trophiescontainer .slotHover {
@@ -317,6 +319,7 @@ width: 80px;
 background: url(/static/playstationbr/img/icon_bg2.jpg) repeat-x;
 border: 1px solid #CCC;
 background: url(/static/playstationbr/img/icon_bg2.jpg) repeat-x;
+height: 44px;
 }
 
 .trophiescontainer .slotcontent .titlesection img {
@@ -328,10 +331,7 @@ height: 44px;
 
 font-size: 13px;
 font-weight: bold;
-margin: 20px 0px 0px 0px;
 text-align: left;
-/*width: 160px;*/
-_width: 130px;
 }
 
 .trophiescontainer .slotcontent .titlesection .titletext table {
@@ -409,7 +409,7 @@ width: 37px;
 float: right;
 height: 58px;
 margin: 0 0 0 0px;
-/*width: 205px;*/
+/*width: 183px;*/
 }
 .trophiescontainer .slotcontent .normal {
 background: url(/static/playstationbr/img/divider.png) no-repeat 0 0;
@@ -417,5 +417,6 @@ background: url(/static/playstationbr/img/divider.png) no-repeat 0 0;
 
 
 .gameTitleSortField {
-	word-wrap: break-word;	
+	word-wrap: break-word;
+	height: 10px;	
 }

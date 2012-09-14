@@ -294,3 +294,18 @@ a {
 .right {
 	float:right;
 }
+
+form input {
+	border: 1px #dddddd solid;
+	padding: 10px 10px 10px 10px;
+	font-size: 10px;
+	color: #555555;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	-moz-border-radius: 10px; /* Firefox */
+	-webkit-border-radius: 10px; /* Safari, Chrome */
+	-khtml-border-radius: 10px; /* KHTML */
+	border-radius: 10px; /* CSS3 */
+}
+
+
