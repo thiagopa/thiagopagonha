@@ -35,8 +35,10 @@
 	</form>
 	
 {% if profile == None %}
-	<br/>
-	<p class="red">Usuário <strong>{{psn_user}}</strong> não foi encontrado, verifique se não digitou errado...</p>
+	<div class="trophiescontainer center">
+		<p class="red">Usuário <strong>{{psn_user}}</strong> não foi encontrado, verifique se não digitou errado...</p>
+	</div>
+
 {% else %}	
 
 <div class="trophiescontainer">
@@ -222,6 +224,6 @@
 			</div>
 		</div>
 
-	</div>
 {% endif %}
+	</div>
 {% endblock %}

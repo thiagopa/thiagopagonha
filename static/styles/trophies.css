@@ -420,3 +420,8 @@ background: url(/static/playstationbr/img/divider.png) no-repeat 0 0;
 	word-wrap: break-word;
 	height: 10px;	
 }
+
+.center {
+	text-align: center;
+	padding-top: 15px;
+}
