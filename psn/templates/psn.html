@@ -163,7 +163,9 @@
 									<img border="0" alt="" src="{{ game.Image }}"> 
 								</div>
 								<div class="titletext gameTitleSortField ">
-												{{ game.Title }}
+										{% autoescape off %}
+										{{ game.Title }}
+										{% endautoescape %}
 								</div>
 							</div>	
 

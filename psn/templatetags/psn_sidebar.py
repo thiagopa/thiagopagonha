@@ -2,6 +2,12 @@ from django import template
 
 from random import sample
 
+import xml.parsers.expat
+
+import logging
+
+logger = logging.getLogger(__name__)
+
 register = template.Library()
 
 from psn.models import *
