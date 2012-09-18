@@ -72,7 +72,6 @@ img.aligntop {
 
 p {
 	margin-bottom: 1.5em;
-	margin-left: 8px;
 }
 
 ul {
@@ -89,6 +88,10 @@ a {
 
 .box {
 	margin: 0 0 50px 0;
+}
+
+.box p {
+	margin-left: 8px;
 }
 
 #content {
