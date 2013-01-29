@@ -17,7 +17,7 @@ django (non-rel) = [ git clone git://github.com/django-nonrel/django-nonrel.git 
 djangoappengine = [ git clone git://github.com/django-nonrel/djangoappengine.git ]
 djangotoolbox = [ git clone git://github.com/django-nonrel/djangotoolbox.git ]
 WebOs==1.1.1
-SUDS (my github version) = [ git clone git@github.com:thiagopa/suds.git ]
+SUDS (my github version) = [ git clone git://git@github.com:thiagopa/suds.git ]
 pytz
 
 Added PSN Account Integration which is pretty cool ;P
