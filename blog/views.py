@@ -13,6 +13,7 @@ from django.forms import ModelForm
 
 from django.views.generic import list_detail
 
+from google.appengine.api import mail
 
 class CommentForm(ModelForm):
     class Meta:
@@ -34,36 +35,6 @@ def post(request, pk):
     d.update(csrf(request))
     return render_to_response("post.html", d)
 
-def delete_comment(request, post_pk, pk=None):
-    """Delete comment(s) with primary key `pk` or with pks in POST."""
-    if request.user.is_staff:
-        if not pk: pklst = request.POST.getlist("delete")
-        else: pklst = [pk]
-
-        for pk in pklst:
-            Comment.objects.get(pk=pk).delete()
-        return HttpResponseRedirect(reverse("blog.views.post", args=[post_pk]))
-
-def add_comment(request, pk):
-    """Add a new comment."""
-    p = request.POST
-
-    if p.has_key("body") and p["body"]:
-        author = "Anonymous"
-        if p["author"]: author = p["author"]
-        comment = Comment(post=Post.objects.get(pk=pk))
-
-        # save comment form
-        cf = CommentForm(p, instance=comment)
-        cf.fields["author"].required = False
-        comment = cf.save(commit=False)
-
-        # save comment instance
-        comment.author = author
-        notify = True
-        if request.user.username == "ak": notify = False
-        comment.save(notify=notify)
-    return HttpResponseRedirect(reverse("blog.views.post", args=[pk]))
 
 def mkmonth_lst():
     """Make a list of months to show archive links."""
@@ -136,6 +107,18 @@ def blog_post_search(request):
     else:
         return render_to_response('blog/invalid_search.html')
         
-
 def google(request):
     return render_to_response('google9bee04d2de3a930d.html')
+
+def send_mail(request):
+    """
+        Envia Email de Erro para Notificar o Mau funcionamento da API
+    """
+    mail.send_mail(sender="Thiago Pagonha <thi.pag@gmail.com>",
+                   to="Thiago Pagonha <thi.pag@gmail.com>",
+                   subject="thiagopagonha.appspot.com: New Comment Has Arrived!",
+                   body="""
+                            Comment was added '%s': \n\n
+                        """ % (request.GET['message']))
+      
+

@@ -4,18 +4,14 @@ from blog.models import *
 from blog.views import * 
 from blog.feeds import BlogLatestEntries
 
-
-
 feeds = {
     'latest': BlogLatestEntries,
 }
 
 urlpatterns = patterns('blog.views',
    (r"^(\d+)/$", "post"),
-   (r"^add_comment/(\d+)/$", "add_comment"),
-   (r"^delete_comment/(\d+)/$", "delete_comment"),
-   (r"^delete_comment/(\d+)/(\d+)/$", "delete_comment"),
    (r"^month/(\d+)/(\d+)/$", "month"),
+   (r"^notify$", "send_mail"),
    
    #url(r'^post/(?P<slug>[a-z-]+)/$', blog_generic_view, 
     #    {'redirect_to': list_detail.object_detail, 'slug_field': 'slug', 'paginated': False,}, name="single_post"),
