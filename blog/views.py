@@ -15,11 +15,6 @@ from django.views.generic import list_detail
 
 from google.appengine.api import mail
 
-class CommentForm(ModelForm):
-    class Meta:
-        model = Comment
-        exclude = ["post"]
-
 def is_active(response):
     return "active"
 

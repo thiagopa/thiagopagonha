@@ -16,13 +16,43 @@
 
 {% block content %}
 <div class="box">
-	<h2>Blog</h2>
+	<h2>Últimos Posts</h2>
 	
-	<img class="alignleft" src="/static/images/pic01.jpg" width="200" height="180" alt="" />
-	
-	A idéia é criar um Blog pessoal, trabalho em andamento...
+	A idéia é criar um Blog pessoal, trabalho em <strong>andamento...</strong>
 	
 	Já possuo um blog sobre animes no <a href="http://myanimelist.net/blog/thiago_pagogna">myanimelist</a>, vou trazê-lo para cá.
+	
+	 <!-- Posts  -->
+            {% for post in post_list %}
+                <div class="title"><a href="{% url blog.views.post post.pk %}">{{ post.title }}</a></div>
+                <ul>
+                    <div class="time">{{ post.created }}</div>
+                    <div class="body">{{ post.body|linebreaks }}</div>
+                    <div class="commentlink">
+                     ""NUMERO DE COMENTÁRIOS FACEBOOK PLUGIN SOCIAL""
+                    </div>
+                </ul>
+            {% endfor %}
+
+        <!-- Next/Prev page links  -->
+        {% if not archive and posts.object_list and posts.paginator.num_pages > 1 %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if posts.has_previous %}
+                    <a href= "?page={{ posts.previous_page_number }}">newer entries &lt;&lt; </a>
+                {% endif %}
+
+                <span class="current">
+                    &nbsp;Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+                </span>
+
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}"> &gt;&gt; older entries</a>
+                {% endif %}
+            </span>
+        </div>
+        {% endif %}
+	
 	
 </div>	
 {% endblock %}
