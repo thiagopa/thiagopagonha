@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import time
 from calendar import month_name
 
@@ -71,8 +72,8 @@ def main(request):
     except (InvalidPage, EmptyPage):
         posts = paginator.page(paginator.num_pages)
 
-    return render_to_response("post_list.html", dict(posts=posts, user=request.user,
-                                                post_list=posts.object_list, months=mkmonth_lst()))
+    return render_to_response("list.html", dict(posts=posts, user=request.user,
+                                                post_list=posts.object_list))
 
 
 def blog_generic_view(request, redirect_to, paginate = True, **view_args):
@@ -107,7 +108,7 @@ def google(request):
 
 def send_mail(request):
     """
-        Envia Email de Erro para Notificar o Mau funcionamento da API
+        Envia Email de Erro para Notificar o Novo Comentário
     """
     mail.send_mail(sender="Thiago Pagonha <thi.pag@gmail.com>",
                    to="Thiago Pagonha <thi.pag@gmail.com>",
