@@ -9,7 +9,7 @@ feeds = {
 }
 
 urlpatterns = patterns('blog.views',
-   (r"^(\d+)/$", "post"),
+   (r"^(?P<slug>[a-z-]+)/$", "post"),
    (r"^month/(\d+)/(\d+)/$", "month"),
    (r"^notify$", "send_mail"),
    
