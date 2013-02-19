@@ -24,7 +24,7 @@
 	
 	 <!-- Posts  -->
             {% for post in post_list %}
-                <div class="title"><a href="{% url blog.views.post post.pk %}">{{ post.title }}</a></div>
+                <div class="title"><a href="{% url blog.views.post post.slug %}">{{ post.title }}</a></div>
                 <ul>
                     <div class="time">{{ post.created }}</div>
                     <div class="body">{{ post.body|linebreaks }}</div>

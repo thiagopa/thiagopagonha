@@ -25,9 +25,8 @@ def static_page(response, template):
 
 def post(request, pk):
     """Single post with comments and a comment form."""
-    post = Post.objects.get(pk=pk)
-    comments = Comment.objects.filter(post=post)
-    d = dict(post=post, comments=comments, form=CommentForm(), user=request.user)
+    post = Post.objects.get(slug=pk)
+    d = dict(post=post)
     d.update(csrf(request))
     return render_to_response("post.html", d)
 
@@ -72,7 +71,7 @@ def main(request):
     except (InvalidPage, EmptyPage):
         posts = paginator.page(paginator.num_pages)
 
-    return render_to_response("list.html", dict(posts=posts, user=request.user,
+    return render_to_response("list.html", dict(posts=posts,
                                                 post_list=posts.object_list))
 
 
