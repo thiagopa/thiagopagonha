@@ -6,7 +6,6 @@
 
 {% block head %}
 	<meta property="fb:app_id" content="572311496129468"/>
-	<script src="/static/js/jquery-1.9.0.min.js" type="text/javascript"></script>
 {% endblock head %}
 
 {% block content %}
@@ -50,15 +49,18 @@ FB.Event.subscribe('edge.create',
 	<img class="alignleft thipag"/>
 
 	<p>
-		This page was created by <strong>Thiago Pagonha</strong>... {{ post.created }}
-
+		Esta página foi escrita por <strong>Thiago Pagonha</strong> em {{ post.created }}
 	</p>
 
         <!-- Post  -->
         <ul>
             <ul>
-                <div class="time">{{ post.created }}</div>
-                <div class="body">{{ post.body }}</div>
+                <div class="body">
+                	{% autoescape off %}
+	{{ post.body }}
+	{% endautoescape %}
+                	</div>
+                <div class="time">Visualizações: {{ post.views_count }}, Comentários : {{ post.comment_count }}</div>
             </ul>
         </ul>
 

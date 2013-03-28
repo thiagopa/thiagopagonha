@@ -22,12 +22,17 @@ class Post(models.Model):
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     categories = models.ManyToManyField(Category)
+    
+    short_description = models.CharField(max_length=60)
 
+    views_count = models.IntegerField(default=0)
+    comment_count = models.IntegerField(default=0)
+    
     objects = PostManager()
     
     @models.permalink
     def get_absolute_url(self):
-        return ('single_post', [self.slug])
+        return ('blog', [self.slug])
 
 
     def __unicode__(self):

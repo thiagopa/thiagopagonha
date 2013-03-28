@@ -96,7 +96,7 @@ a {
 
 #content {
 	padding: 0;
-	width: 615px;
+	max-width: 100%;
 	margin: 0 0 0 285px;
 }
 
@@ -133,7 +133,6 @@ a {
 
 #logo h1 {
 	font-family: "Open Sans", sans-serif;
-	font-size: 3em;
 }
 
 #menu {

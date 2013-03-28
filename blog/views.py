@@ -26,6 +26,9 @@ def static_page(response, template):
 def post(request, slug):
     """Single post with comments and a comment form."""
     post = Post.objects.get(slug=slug)
+    
+    post.views_count += 1;
+    
     d = dict(post=post)
     d.update(csrf(request))
     return render_to_response("post.html", d)

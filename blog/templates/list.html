@@ -27,10 +27,8 @@
                 <div class="title"><a href="{% url blog.views.post post.slug %}">{{ post.title }}</a></div>
                 <ul>
                     <div class="time">{{ post.created }}</div>
-                    <div class="body">{{ post.body|linebreaks }}</div>
-                    <div class="commentlink">
-                     ""NUMERO DE COMENTÁRIOS FACEBOOK PLUGIN SOCIAL""
-                    </div>
+                    <div class="body">{{ post.shot_description|linebreaks }}</div>
+                    <div class="commentlink">Visualizações : {{ post.views_count }} , Comentários: {{ post.comment_count }}</div>
                 </ul>
             {% endfor %}
 
