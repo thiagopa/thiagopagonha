@@ -6,9 +6,7 @@ from suds.client import Client
 
 from psn.settings import *
 
-from psn.mem_cache import MemCache
-
-from suds.cache import NoCache
+from suds.mem_cache import MemCache
 
 def profile(request):
     
