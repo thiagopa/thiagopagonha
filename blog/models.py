@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib import admin
 
+from wiki.models import default_now
+
 class Category(models.Model):
     name = models.CharField(max_length=60)
     
@@ -20,7 +22,7 @@ class Post(models.Model):
     title = models.CharField(max_length=60)
     slug = models.SlugField(max_length=120, unique=True)
     body = models.TextField()
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(default=default_now)
     categories = models.ForeignKey(Category)
     
     short_description = models.CharField(max_length=60)
