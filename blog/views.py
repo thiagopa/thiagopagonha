@@ -132,4 +132,4 @@ def send_mail(request):
                             Comment was added at '%s': \n\n
                         """ % (url))
       
-
+    return HttpResponse(status=200)
