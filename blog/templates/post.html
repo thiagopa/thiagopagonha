@@ -2,6 +2,8 @@
 
 {% block title %}{{post.title}} @ Blog{% endblock %}
 
+{% block blogpage %}active{% endblock %}
+
 {% block sidebar %}{% endblock %}
 
 {% block head %}
@@ -10,46 +12,48 @@
 
 {% block content %}
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=572311496129468";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId  : '572311496129468',
+      status : true, // check login status
+      cookie : true, // enable cookies to allow the server to access the session
+      xfbml  : true  // parse XFBML
+    });
 
-FB.Event.subscribe('edge.create',
-    function(response) {
-        $(document).load('notify?message='+response);
-    }
-);
+    /* All the events registered */
+    FB.Event.subscribe('comment.create', function (response) {
+        // do something with response
+        $(document).load('{% url blog.views.send_mail %}?message='+encodeURI(response.href));
+        return true;
+    });
+
+  };
+
+  (function() {
+    var e = document.createElement('script');
+    e.src = document.location.protocol + '//connect.facebook.net/pt_BR/all.js';
+    e.async = true;
+    document.getElementById('fb-root').appendChild(e);
+  }());
+  
 </script>
 
 
     <style type="text/css">
         #content {margin: 0 0 0 15px;}
-        .main { margin-left: 25px; margin-top: 30px; }
-        .time { font-size: 0.8em; margin-top: 2px; }
-        .comment { border: 1px solid #eee; padding: 4px; margin-bottom: 12px; }
-        .body { font-size: 1.1em; margin-top: 2px; }
-        .messages { margin-left: 20px; }
-        .title { font-size: 1.4em; margin-top: 20px; border-bottom: 1px solid #ccc; padding-left: 4px; }
+        #page { width: 880px; }
 
-        #addc { width: 508px; background: #f5f5f5; padding: 3px; padding-bottom: 8px;
-            border-bottom: 1px dotted #aaa;
-            }
-        #cform { background: #f5f5f5; width: 506px; padding: 4px; padding-bottom: 0px; }
-        #submit { text-align: right; margin-right: 50px; width: 500px; margin-top: -5px; }
-
-        ul { margin-bottom: 30px; }
+        .fb-comments, .fb-comments span, .fb-comments iframe { width: 100% !important; }
     </style>
+    
     <div class="box">
 	
 	<h2>{{ post.title }}</h2>
 	<img class="alignleft thipag"/>
 
 	<p>
-		Esta página foi escrita por <strong>Thiago Pagonha</strong> em {{ post.created }}
+		Esta página foi escrita por <strong>Thiago Pagonha</strong> em {{ post.created }} no assunto de {{post.categories}}
 	</p>
 
         <!-- Post  -->
@@ -60,11 +64,11 @@ FB.Event.subscribe('edge.create',
 	{{ post.body }}
 	{% endautoescape %}
                 	</div>
-                <div class="time">Visualizações: {{ post.views_count }}, Comentários : {{ post.comment_count }}</div>
+                <div class="time">{{ post.views_count }} Visualizações e {{ post.comment_count }} Comentários</div>
             </ul>
         </ul>
 
-		<div class="fb-comments" data-width="470" data-num-posts="2" data-colorscheme="light"></div>
+		<div class="fb-comments" data-width="480" data-num-posts="2" data-colorscheme="light" data-notify="true" data-href="http://thiagopagonha.appspot.com{% url blog.views.post post.slug %}"></div>
 
     </div>
 

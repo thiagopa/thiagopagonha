@@ -8,7 +8,7 @@
 <div id="sidebar">
 	<div class="box">
 		<h3>Navegação</h3>
-		Árvore com os anos e meses e posts
+		Árvore com os anos e meses e posts (em breve)
 	</div>
 
 </div>
@@ -16,20 +16,18 @@
 
 {% block content %}
 <div class="box">
-	<h2>Últimos Posts</h2>
-	
-	A idéia é criar um Blog pessoal, trabalho em <strong>andamento...</strong>
-	
-	Já possuo um blog sobre animes no <a href="http://myanimelist.net/blog/thiago_pagogna">myanimelist</a>, vou trazê-lo para cá.
+	<h2>Últimas Notícias</h2>
 	
 	 <!-- Posts  -->
             {% for post in post_list %}
+                <div class="shadow">
                 <div class="title"><a href="{% url blog.views.post post.slug %}">{{ post.title }}</a></div>
                 <ul>
-                    <div class="time">{{ post.created }}</div>
-                    <div class="body">{{ post.shot_description|linebreaks }}</div>
-                    <div class="commentlink">Visualizações : {{ post.views_count }} , Comentários: {{ post.comment_count }}</div>
+                    <div class="time">{{post.categories}} - {{ post.created }}</div>
+                    <div class="body">{{ post.short_description|linebreaks }}</div>
+                    <div class="commentlink">{{ post.views_count }} Visualizações e {{ post.comment_count }} Comentários</div>
                 </ul>
+                </div>
             {% endfor %}
 
         <!-- Next/Prev page links  -->
@@ -37,15 +35,15 @@
         <div class="pagination">
             <span class="step-links">
                 {% if posts.has_previous %}
-                    <a href= "?page={{ posts.previous_page_number }}">newer entries &lt;&lt; </a>
+                    <a href= "?page={{ posts.previous_page_number }}">anterior &lt;&lt; </a>
                 {% endif %}
 
                 <span class="current">
-                    &nbsp;Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+                    &nbsp;Página {{ posts.number }} de {{ posts.paginator.num_pages }}
                 </span>
 
                 {% if posts.has_next %}
-                    <a href="?page={{ posts.next_page_number }}"> &gt;&gt; older entries</a>
+                    <a href="?page={{ posts.next_page_number }}"> &gt;&gt; próxima</a>
                 {% endif %}
             </span>
         </div>

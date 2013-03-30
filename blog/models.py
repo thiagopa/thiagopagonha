@@ -21,7 +21,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=120, unique=True)
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
-    categories = models.ManyToManyField(Category)
+    categories = models.ForeignKey(Category)
     
     short_description = models.CharField(max_length=60)
 
@@ -61,7 +61,6 @@ class FortuneCookie(models.Model):
 class PostAdmin(admin.ModelAdmin):
     search_fields = ["title"]
     display_fields = ["title", "created"]
-    filter_horizontal = ('categories',)
     list_display = ('title', 'created')
     prepopulated_fields = {"slug" : ("title",)}
 

@@ -9,7 +9,7 @@ from django.core.context_processors import csrf
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
 
-from  blog.models import *
+from blog.models import *
 from django.forms import ModelForm
 
 from django.views.generic import list_detail
@@ -28,6 +28,8 @@ def post(request, slug):
     post = Post.objects.get(slug=slug)
     
     post.views_count += 1;
+    
+    post.save()
     
     d = dict(post=post)
     d.update(csrf(request))
@@ -65,7 +67,7 @@ def main(request):
     """Main listing."""
     #posts = Post.objects.all().order_by("-created")
     posts = Post.objects.all()
-    paginator = Paginator(posts, 10)
+    paginator = Paginator(posts, 3)
     try: page = int(request.GET.get("page", '1'))
     except ValueError: page = 1
 
@@ -109,13 +111,25 @@ def google(request):
 
 def send_mail(request):
     """
-        Envia Email de Erro para Notificar o Novo Comentário
+       Adiciona o contador 
+    """
+    
+    url = request.GET['message']    
+    
+    post = Post.objects.get(slug=url.rsplit('/',2)[1])
+    
+    post.comment_count += 1;
+    
+    post.save()
+    
+    """
+        Envia Email para Notificar o Novo Comentário
     """
     mail.send_mail(sender="Thiago Pagonha <thi.pag@gmail.com>",
                    to="Thiago Pagonha <thi.pag@gmail.com>",
                    subject="thiagopagonha.appspot.com: New Comment Has Arrived!",
                    body="""
-                            Comment was added '%s': \n\n
-                        """ % (request.GET['message']))
+                            Comment was added at '%s': \n\n
+                        """ % (url))
       
 
