@@ -57,14 +57,13 @@
 	</p>
 
         <!-- Post  -->
-                <div class="body">
-                	{% autoescape off %}
+    {% autoescape off %}
 	{{ post.body }}
 	{% endautoescape %}
-                	</div>
-                <div class="time">{{ post.views_count }} Visualizações e {{ post.comment_count }} Comentários</div>
+    
+    <div class="time">{{ post.views_count }} Visualizações e {{ post.comment_count }} Comentários</div>
 
-		<div class="fb-comments" data-width="480" data-num-posts="2" data-colorscheme="light" data-notify="true" data-href="http://thiagopagonha.appspot.com{% url blog.views.post post.slug %}"></div>
+	<div class="fb-comments" data-width="480" data-num-posts="2" data-colorscheme="light" data-notify="true" data-href="http://thiagopagonha.appspot.com{% url blog.views.post post.slug %}"></div>
 
     </div>
 
