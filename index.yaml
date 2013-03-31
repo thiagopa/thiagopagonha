@@ -41,6 +41,19 @@ indexes:
   - name: __key__
     direction: desc
 
+- kind: blog_post
+  properties:
+  - name: slug
+  - name: visible
+  - name: created
+    direction: desc
+
+- kind: blog_post
+  properties:
+  - name: visible
+  - name: created
+    direction: desc
+
 - kind: psn_wishlist
   properties:
   - name: __key__

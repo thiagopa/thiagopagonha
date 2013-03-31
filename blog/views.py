@@ -25,15 +25,18 @@ def static_page(response, template):
 
 def post(request, slug):
     """Single post with comments and a comment form."""
-    post = Post.objects.get(slug=slug)
+    try :
+        post = Post.objects.filter(slug=slug,visible=True)[0]
     
-    post.views_count += 1;
+        post.views_count += 1;
     
-    post.save()
+        post.save()
     
-    d = dict(post=post)
-    d.update(csrf(request))
-    return render_to_response("post.html", d)
+        d = dict(post=post)
+        d.update(csrf(request))
+        return render_to_response("post.html", d)
+    except Exception:
+        return render_to_response("404.html")
 
 
 def mkmonth_lst():
@@ -66,7 +69,7 @@ def month(request, year, month):
 def main(request):
     """Main listing."""
     #posts = Post.objects.all().order_by("-created")
-    posts = Post.objects.all()
+    posts = Post.objects.filter(visible=True)
     paginator = Paginator(posts, 3)
     try: page = int(request.GET.get("page", '1'))
     except ValueError: page = 1

@@ -30,6 +30,8 @@ class Post(models.Model):
     views_count = models.IntegerField(default=0)
     comment_count = models.IntegerField(default=0)
     
+    visible = models.BooleanField(default=True)
+    
     objects = PostManager()
     
     @models.permalink
@@ -63,6 +65,6 @@ class FortuneCookie(models.Model):
 class PostAdmin(admin.ModelAdmin):
     search_fields = ["title"]
     display_fields = ["title", "created"]
-    list_display = ('title', 'created')
+    list_display = ('title', 'created', "visible")
     prepopulated_fields = {"slug" : ("title",)}
 
