@@ -2,11 +2,6 @@ from django.conf.urls.defaults import *
 from django.views.generic import list_detail, date_based
 from blog.models import *
 from blog.views import * 
-from blog.feeds import BlogLatestEntries
-
-feeds = {
-    'latest': BlogLatestEntries,
-}
 
 urlpatterns = patterns('blog.views',
    (r"^(?P<slug>[a-z-]+)/$", "post"),
@@ -22,9 +17,6 @@ urlpatterns = patterns('blog.views',
     #        , name="blog_posts_by_month"),
     #url(r'^category/(\d+)/$', blog_posts_by_category, name="blog_posts_by_category"),
     #url(r'^search/$', blog_post_search, name="blog_post_search"),
-    
-    #(r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.Feed', {'feed_dict': feeds}),
-   
    
 #   (r'^comments/', include('django.contrib.comments.urls')),
    url(r'^(?P<template>\w+)/$', static_page, name="static_page"),

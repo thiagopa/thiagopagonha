@@ -34,11 +34,6 @@ class Post(models.Model):
     
     objects = PostManager()
     
-    @models.permalink
-    def get_absolute_url(self):
-        return ('blog', [self.slug])
-
-
     def __unicode__(self):
         return self.title
 

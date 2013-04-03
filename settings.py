@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.auth',
     'django.contrib.sessions',
+    'django.contrib.syndication',
     #'django.contrib.sites',
     'djangotoolbox',
     'autoload',
