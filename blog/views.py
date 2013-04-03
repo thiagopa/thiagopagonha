@@ -2,12 +2,13 @@
 import time
 from calendar import month_name
 
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
 from django.shortcuts import get_object_or_404, render_to_response
 from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
+from django.template.loader import render_to_string
 
 from blog.models import *
 from django.forms import ModelForm
@@ -36,7 +37,7 @@ def post(request, slug):
         d.update(csrf(request))
         return render_to_response("post.html", d)
     except Exception:
-        return render_to_response("404.html")
+        return HttpResponseNotFound(render_to_string('404.html'))
 
 
 def mkmonth_lst():
