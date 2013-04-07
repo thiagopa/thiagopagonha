@@ -39,6 +39,33 @@ def post(request, slug):
     except Exception:
         return HttpResponseNotFound(render_to_string('404.html'))
 
+def preview(request, id):
+    """Single post with comments and a comment form."""
+    try :
+        post = Post.objects.get(id=id)
+    
+        d = dict(post=post)
+        d.update(csrf(request))
+        return render_to_response("preview.html", d)
+    except Exception:
+        return HttpResponseNotFound(render_to_string('404.html'))
+
+def publish(request, id):
+    """Single post with comments and a comment form."""
+    try :
+        post = Post.objects.get(id=id)
+    
+        post.visible = True
+        
+        post.save()
+    
+        d = dict(post=post)
+        d.update(csrf(request))
+        return render_to_response("post.html", d)
+    except Exception:
+        return HttpResponseNotFound(render_to_string('404.html'))
+
+
 
 def mkmonth_lst():
     """Make a list of months to show archive links."""

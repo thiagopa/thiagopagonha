@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}{{post.title}} @ Blog{% endblock %}
+
+{% block blogpage %}active{% endblock %}
+
+{% block sidebar %}{% endblock %}
+
+{% block content %}
+
+    <style type="text/css">
+        #content {margin: 0 0 0 15px;}
+        #page { width: 880px; }
+
+        .fb-comments, .fb-comments span, .fb-comments iframe { width: 100% !important; }
+    </style>
+    
+    <div class="box">
+	
+	<h2 class="title-post">{{ post.title }}</h2>
+	<img class="alignleft thipag"/>
+
+	<p>
+		Esta página foi escrita por <strong>Thiago Pagonha</strong> em {{ post.created }} no assunto de {{post.categories}}
+	</p>
+
+        <!-- Post  -->
+    {% autoescape off %}
+	{{ post.body }}
+	{% endautoescape %}
+    
+    <div class="clearfix"></div>
+    
+    <div class="time right">{{ post.views_count }} Visualizações e {{ post.comment_count }} Comentários</div>
+
+	<div class="blog-end"></div>
+
+	<p>
+		Now you can <a href="/admin/blog/post/{{post.id}}/">Edit</a> or <a href="/blog/publish/{{post.id}}">Publish</a>, it's your choice ;) 
+    </p>
+	
+	</div>
+
+{% endblock %}

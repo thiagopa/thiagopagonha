@@ -4,6 +4,8 @@ from blog.models import *
 from blog.views import * 
 
 urlpatterns = patterns('blog.views',
+   (r"^preview/(\d+)$", "preview"),
+   (r"^publish/(\d+)$", "publish"),
    (r"^(?P<slug>[a-z-]+)/$", "post"),
    (r"^month/(\d+)/(\d+)/$", "month"),
    (r"^notify$", "send_mail"),

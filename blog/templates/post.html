@@ -43,13 +43,13 @@
     <style type="text/css">
         #content {margin: 0 0 0 15px;}
         #page { width: 880px; }
-
+		
         .fb-comments, .fb-comments span, .fb-comments iframe { width: 100% !important; }
     </style>
     
     <div class="box">
 	
-	<h2>{{ post.title }}</h2>
+	<h2 class="title-post">{{ post.title }}</h2>
 	<img class="alignleft thipag"/>
 
 	<p>
@@ -61,7 +61,11 @@
 	{{ post.body }}
 	{% endautoescape %}
     
-    <div class="time">{{ post.views_count }} Visualizações e {{ post.comment_count }} Comentários</div>
+    <div class="clearfix"></div>
+    
+    <div class="time right">{{ post.views_count }} Visualizações e {{ post.comment_count }} Comentários</div>
+
+	<div class="blog-end"></div>
 
 	<div class="fb-comments" data-width="480" data-num-posts="2" data-colorscheme="light" data-notify="true" data-href="http://thiagopagonha.appspot.com{% url blog.views.post post.slug %}"></div>
 

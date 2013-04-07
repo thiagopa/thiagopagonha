@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib import admin
-
+from django.utils.safestring import mark_safe
 from wiki.models import default_now
 
 class Category(models.Model):
@@ -58,8 +58,14 @@ class FortuneCookie(models.Model):
 ### Admin
 
 class PostAdmin(admin.ModelAdmin):
+    def preview_post(self,obj):
+        return mark_safe("<a href='/blog/preview/%s'>Preview</a>" % obj.id)
+    
+    preview_post.allow_tags = True
+    preview_post.short_description = 'Preview Post'
+    
     search_fields = ["title"]
     display_fields = ["title", "created"]
-    list_display = ('title', 'created', "visible")
+    list_display = ('title', 'created', "visible" , "preview_post")
     prepopulated_fields = {"slug" : ("title",)}
 
