@@ -90,7 +90,7 @@ def archive(request):
             content.append(year_map)
     elif len(id) == 4 :
         months = []
-        posts = Post.objects.filter(created__year=id)
+        posts = Post.objects.filter(created__year=id,visible=True)
         for p in posts:
             month = p.created.month
             if not month in months:
@@ -106,7 +106,7 @@ def archive(request):
         year = splited[0]
         month = splited[1]
         
-        posts = Post.objects.filter(created__year=year)
+        posts = Post.objects.filter(created__year=year,visible=True)
 
         for p in posts:
             m = p.created.month
