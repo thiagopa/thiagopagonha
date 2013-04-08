@@ -317,6 +317,11 @@ form input {
   box-shadow:         3px 3px 5px 6px #ccc;
 }
 
+.shadow ul {
+  margin-left: 5px;
+}
+
+
 .main { margin-left: 25px; margin-top: 30px; }
 .time { font-size: 0.8em; margin-top: 2px; }
 .comment { border: 1px solid #eee; padding: 4px; margin-bottom: 12px; }
@@ -344,3 +349,4 @@ form input {
 	width: 500px;
 	margin-top: -5px;
 }
+

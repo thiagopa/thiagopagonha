@@ -1,6 +1,5 @@
 #-*- coding: utf-8 -*-
 import time
-from calendar import month_name
 
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
 from django.shortcuts import get_object_or_404, render_to_response
@@ -17,15 +16,15 @@ from django.views.generic import list_detail
 
 from google.appengine.api import mail
 
-def is_active(response):
-    return "active"
+import json
+
+MONTH_NAME = ['[X]', 'Janeiro', 'Fevereiro' , 'Março' , 'Abril' , 'Maio' , 'Junho' , 'Julho' , 'Agosto' , 'Setembro' , 'Outubro', 'Novembro' , 'Dezembro']
 
 def static_page(response, template):
     template = "%s.html" % (template)
     return render_to_response(template)
 
 def post(request, slug):
-    """Single post with comments and a comment form."""
     try :
         post = Post.objects.filter(slug=slug,visible=True)[0]
     
@@ -65,39 +64,67 @@ def publish(request, id):
     except Exception:
         return HttpResponseNotFound(render_to_string('404.html'))
 
-
-
-def mkmonth_lst():
-    """Make a list of months to show archive links."""
+def archive(request):
     if not Post.objects.count(): return []
+    
+    content = []
+    try :
+        id = request.GET['node']
+    except Exception :
+        id = None
+    
+    if not id :
+        year, month = time.localtime()[:2]
+        first = Post.objects.order_by("created")[0]
+        fyear = first.created.year
+        fmonth = first.created.month
+        
+        for y in range(year, fyear-1, -1):
+            
+            year_map = {
+                 "label": y,
+                 "id": y,
+                 "load_on_demand": True
+            }
+            
+            content.append(year_map)
+    elif len(id) == 4 :
+        months = []
+        posts = Post.objects.filter(created__year=id)
+        for p in posts:
+            month = p.created.month
+            if not month in months:
+                months.append(month)
+                month_map = {
+                "label" : MONTH_NAME[month],
+                "id" : str(id) +'.'+ str(month),
+                "load_on_demand": True
+                }
+                content.append(month_map)
+    else :
+        splited = id.split('.') 
+        year = splited[0]
+        month = splited[1]
+        
+        posts = Post.objects.filter(created__year=year)
 
-    # set up vars
-    year, month = time.localtime()[:2]
-    first = Post.objects.order_by("created")[0]
-    fyear = first.created.year
-    fmonth = first.created.month
-    months = []
+        for p in posts:
+            m = p.created.month
+            if m == int(month):
+                post_map = {
+                    "label" : '<a href="/blog/%s/">%s</a>' % (p.slug,p.title)
+                }
+                content.append(post_map)
+        
+    return HttpResponse(json.dumps(content), content_type="application/json")
 
-    # loop over years and months
-    for y in range(year, fyear-1, -1):
-        start, end = 12, 0
-        if y == year: start = month
-        if y == fyear: end = fmonth-1
-
-        for m in range(start, end, -1):
-            months.append((y, m, month_name[m]))
-    return months
-
-def month(request, year, month):
-    """Monthly archive."""
-    posts = Post.objects.filter(created__year=year, created__month=month)
-    return render_to_response("list.html", dict(post_list=posts, user=request.user,
-                                                months=mkmonth_lst(), archive=True))
 
 def main(request):
-    """Main listing."""
-    #posts = Post.objects.all().order_by("-created")
     posts = Post.objects.filter(visible=True)
+    return paginator(request,posts)
+
+def paginator(request, posts):
+    """Main listing."""
     paginator = Paginator(posts, 3)
     try: page = int(request.GET.get("page", '1'))
     except ValueError: page = 1
@@ -109,23 +136,11 @@ def main(request):
 
     return render_to_response("list.html", dict(posts=posts, post_list=posts.object_list))
 
-
-def blog_generic_view(request, redirect_to, paginate = True, **view_args):
-    view_args['queryset'] = view_args.get('queryset', Post.objects.all())
-    view_args['template_object_name'] = 'post'
+def category(request, category_id):
+    category = Category.objects.get(id=category_id)
+    posts = Post.objects.filter(categories=category, visible=True)
     
-    if paginate:
-        view_args['paginate_by'] = 5
-    
-    return redirect_to(request, **view_args)
-
-def blog_posts_by_category(request, category_id):
-    category = get_object_or_404(Category, pk = category_id)
-    return blog_generic_view(
-        request,
-        list_detail.object_list,
-        queryset = category.post_set.all()
-    )
+    return paginator(request,posts)
 
 def blog_post_search(request):
     if 's' in request.GET and request.GET['s']:

@@ -15,15 +15,15 @@
         .fb-comments, .fb-comments span, .fb-comments iframe { width: 100% !important; }
     </style>
     
-    <div class="box">
-	
+    <article class="box">
+	<header>
 	<h2 class="title-post">{{ post.title }}</h2>
 	<img class="alignleft thipag"/>
 
 	<p>
-		Esta página foi escrita por <strong>Thiago Pagonha</strong> em {{ post.created }} no assunto de {{post.categories}}
+		Esta página foi escrita por <strong>Thiago Pagonha</strong> em <time>{{ post.created }}</time> no assunto de <a href="{% url blog.views.category post.categories.id %}">{{post.categories}}</a>
 	</p>
-
+    </header>
         <!-- Post  -->
     {% autoescape off %}
 	{{ post.body }}
@@ -39,6 +39,6 @@
 		Now you can <a href="/admin/blog/post/{{post.id}}/">Edit</a> or <a href="/blog/publish/{{post.id}}">Publish</a>, it's your choice ;) 
     </p>
 	
-	</div>
+	</article>
 
 {% endblock %}

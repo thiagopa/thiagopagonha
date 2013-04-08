@@ -43,6 +43,13 @@ indexes:
 
 - kind: blog_post
   properties:
+  - name: categories_id
+  - name: visible
+  - name: created
+    direction: desc
+
+- kind: blog_post
+  properties:
   - name: slug
   - name: visible
   - name: created

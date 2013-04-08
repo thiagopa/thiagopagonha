@@ -25,7 +25,7 @@ class Post(models.Model):
     created = models.DateTimeField(default=default_now)
     categories = models.ForeignKey(Category)
     
-    short_description = models.CharField(max_length=60)
+    short_description = models.CharField(max_length=180)
 
     views_count = models.IntegerField(default=0)
     comment_count = models.IntegerField(default=0)
