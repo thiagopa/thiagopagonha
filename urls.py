@@ -3,6 +3,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from blog.feeds import BlogLatestEntries
+from django.views.generic.simple import direct_to_template
 
 handler500 = 'djangotoolbox.errorviews.server_error'
 
@@ -16,4 +17,5 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^google9bee04d2de3a930d.html$', 'blog.views.google'),
     (r'^feeds/$', BlogLatestEntries()),
+    (r'^robots\.txt$', direct_to_template, {'template': 'robots.txt', 'mimetype': 'text/plain'})
 )
