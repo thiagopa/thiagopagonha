@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load blog_utils %}
+
 {% block title %}{{post.title}} @ Blog{% endblock %}
 
 {% block blogpage %}active{% endblock %}
@@ -63,7 +65,7 @@
     
     <div class="clearfix"></div>
     
-    <div class="time right">{{ post.views_count }} Visualizações e {{ post.comment_count }} Comentários</div>
+    <div class="time right">{{ post.views_count }} Visualizações e {% comment_decorator post.comment_count %}</div>
 
 	<div class="blog-end"></div>
 

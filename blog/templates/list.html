@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load blog_utils %}
+
 {% block title %}Blog{% endblock %}
 
 {% block blogpage %}active{% endblock %}
@@ -42,7 +44,7 @@
                 <ul>
                     <div class="time"><a href="{% url blog.views.category post.categories.id %}">{{post.categories}}</a> - {{ post.created }}</div>
                     <div class="body">{{ post.short_description|linebreaks }}</div>
-                    <div class="commentlink">{{ post.views_count }} Visualizações e {{ post.comment_count }} Comentários</div>
+                    <div class="commentlink">{{ post.views_count }} Visualizações e {% comment_decorator post.comment_count %}</div>
                 </ul>
                 </div>
             {% endfor %}
