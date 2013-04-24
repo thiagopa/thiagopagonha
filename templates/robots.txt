@@ -1,0 +1,6 @@
+User-agent: Googlebot
+Disallow: /blog/notify
+Disallow: /blog/archive
+
+User-agent: *
+Disallow: /
