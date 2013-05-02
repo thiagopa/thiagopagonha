@@ -10,7 +10,10 @@
 
 {% block head %}
 	<link href="/static/gcp/prettify.css" type="text/css" rel="stylesheet" />
-	<script src="/static/gcp/run_prettify.js"></script>
+	<script src="/static/gcp/prettify.js"></script>
+	<script type="text/javascript">
+		$(document).ready(prettyPrint);
+	</script>
 {% endblock head %}
 
 {% block content %}
