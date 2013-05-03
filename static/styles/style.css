@@ -92,6 +92,7 @@ a {
 
 .box p {
 	margin-left: 8px;
+        text-align:left;
 }
 
 #content {
