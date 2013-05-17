@@ -53,7 +53,7 @@ class Links(models.Model):
     type = models.IntegerField(choices=TYPES)
     
     def __unicode__(self):
-        return '%s:%s' % (self.TYPES[self.type][1],self.url)
+        return '%s:%s' % (self.TYPES[self.type - 1][1],self.url)
     
 class FortuneCookie(models.Model):
     name = models.TextField()
