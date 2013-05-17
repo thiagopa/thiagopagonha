@@ -52,8 +52,14 @@ class Links(models.Model):
     url = models.TextField()
     type = models.IntegerField(choices=TYPES)
     
+    def __unicode__(self):
+        return '%s:%s' % (self.TYPES[self.type][1],self.url)
+    
 class FortuneCookie(models.Model):
     name = models.TextField()
+    
+    def __unicode__(self):
+        return self.name
         
 ### Admin
 
