@@ -6,7 +6,7 @@ from blog.views import *
 urlpatterns = patterns('blog.views',
    (r"^preview/(\d+)$", "preview"),
    (r"^publish/(\d+)$", "publish"),
-   (r"^(?P<slug>[a-z-]+)/$", "post"),
+   (r"^(?P<slug>[a-zA-Z0-9-]+)/$", "post"),
    (r"^notify$", "send_mail"),
    (r"^archive$", "archive"),
    (r"^category/(\d+)/$", "category"),

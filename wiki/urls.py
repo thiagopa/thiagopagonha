@@ -3,5 +3,5 @@ from psn.views import *
 
 urlpatterns = patterns('wiki.views',
    (r"^$", "index"),
-   (r"^([a-z-]+)/$", "get_page_name")
+   (r"^([a-zA-Z0-9-]+)/$", "get_page_name")
 )
