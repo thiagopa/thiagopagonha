@@ -3,6 +3,7 @@ encoding//blog/feeds.py=utf-8
 encoding//blog/templatetags/blog_utils.py=utf-8
 encoding//blog/views.py=utf-8
 encoding//psn/views.py=utf-8
+encoding//stalker/views.py=utf-8
 encoding//wiki/models.py=utf-8
 encoding//wiki/views.py=utf-8
 encoding/settings.py=utf-8
